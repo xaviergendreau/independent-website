@@ -78,6 +78,11 @@ nav ul li a:hover {
 }
 
 
+.banner_wrapper {
+  max-width: 100%;
+  
+}
+
 article {
   margin: 2rem;
   display: grid;
@@ -112,9 +117,10 @@ footer {
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
+  font-size: .8em;
 }
 
 .logo-footer {
-  width: 100px;
+  width:50px;
   margin: 0;
 }
