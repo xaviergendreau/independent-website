@@ -41,7 +41,7 @@ img {
   width: 100%;
 }
 
-ul {
+main ul {
   font-family: 'Times New Roman', serif;
   font-weight: normal;
 }
@@ -57,6 +57,7 @@ nav {
   background-color: #000;
   font-size: 1.25em;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   position: sticky;
   position: -webkit-sticky;
@@ -112,4 +113,12 @@ footer {
 .logo-footer {
   width: 100px;
   margin: 0;
+}
+
+@media screen and (max-width:1120px) {
+
+  nav {
+    display: none;
+  }
+
 }
