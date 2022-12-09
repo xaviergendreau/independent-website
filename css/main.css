@@ -1,11 +1,13 @@
 html {
-  box-sizing: html {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
-  *, *::before, *::after {
-    box-sizing: inherit;
-  }
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -21,79 +23,151 @@ p {
 }
 
 h1 {
+  margin: 0;
   font-size: 7em;
   color: #ED1C24;
   text-align: center;
 }
-
 
 h2 {
   font-size: 3em;
   color: #ED1C24;
 }
 
-img {
-  width: 100%;
-}
-
-.logo {
-  width: 200px;
-  margin: 0 auto;
-  position: relative;
-  left: 18%;
-}
-
-nav {
-  background-color: #000;
-  font-size: 1.25em;
-  display: flex;
-  align-items: center;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0px;
-  z-index: 7;
-}
-
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  padding: 2em 0;
-}
-
-nav ul li {
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-top: .5em;
-  padding-bottom: .5em;
-}
-
-nav ul li a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  height: 100%;
-  padding: 10px;
-  color: #000;
-  background-color: #fff;
-}
-
-
-.banner_wrapper {
-  max-width: 100%;
-
-}
 
 main {
   max-width: 1400px;
   margin: 0 auto;
+  padding-top: 8rem;
 }
+
+.main {
+  height: 1000px;
+  display: grid;
+  place-items: center;
+}
+
+
+ img {
+   width: 100%;
+ }
+
+ .logo {
+   width: 200px;
+   margin: 0 auto;
+   position: relative;
+   left: 27%;
+ }
+
+
+header {
+  background: black;
+  text-align: left;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.banner-image img {
+  margin-top: 5.5rem;
+}
+
+.nav-toggle {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+  outline: 3px solid rgba(lightblue, .75);
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: black;
+  width: 100%;
+  overflow: hidden;
+  height: 0;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+nav a:hover {
+  color: #000;
+  background-color: #fff;
+  padding: .5rem;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+  height: auto;
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+}
+
 article {
   margin: 2rem;
   display: grid;
@@ -101,9 +175,25 @@ article {
   grid-template-rows: 1fr;
 }
 
+.content {
+  margin: 2 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.home {
+    margin: 2.5rem 2.5rem 0 2.5rem;
+}
+
+
 #join-now {
   text-align: center;
   align-content: center;
+  display: grid;
+  margin: 5rem 2rem;
+  padding: 1rem 3rem 3rem 3rem;;
+  background-color: black;
 }
 
 .contact {
@@ -130,6 +220,12 @@ article {
   text-align: center;
 }
 
+.five img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .five:hover {
   box-shadow: 0 0 8px #000;
 }
@@ -147,6 +243,22 @@ article {
   box-shadow: 0 0 8px #000;
 }
 
+.three img {
+  width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.body img {
+  width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.spice {
+  margin: 2.5rem;
+}
+
 .bw {
   display: grid;
   grid-template-columns: 1fr;
@@ -162,6 +274,15 @@ article {
 
 .split {
   margin: 2.5rem 2.5rem 0 2.55rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+
+.change {
+  margin: 2.5rem 2.5rem 0 2.55rem;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 
@@ -179,4 +300,139 @@ footer {
 .logo-footer {
   width:50px;
   margin: 0;
+}
+
+
+@media only screen and (min-width: 30em) {
+
+.logo {
+     left: 37%;
+}
+
+  .five-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .three-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+.change{
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+
+  #join-now {
+  margin: 5em 3rem;
+  padding: 1rem 3rem 3rem 3rem;
+  }
+
+  .five img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+.content {
+  grid-template-columns: 1fr 1fr;
+}
+
+
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 70em) {
+
+
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  .logo {
+    grid-column: 2 / 3;
+  }
+
+  nav {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+  }
+
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+
+  nav a::before {
+    content: '';
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1,1);
+  }
+
+
+  .five-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .three-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .change{
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+#join-now {
+    margin: 5em 15rem;
+}
+
+
 }
